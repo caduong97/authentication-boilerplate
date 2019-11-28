@@ -1,5 +1,5 @@
 import devConfig from './devConfig'
-import _ from 'lodash'
+import _ from 'lodash' //package for common utils
 
 let envConfig = devConfig
 
@@ -20,6 +20,7 @@ let envConfig = devConfig
 
 const baseConfig = {
 }
+//what usually contains: types of config that doesn't have to be differentiated for dev, prod and test purposes
 
 const config = _.merge(baseConfig, envConfig)
 

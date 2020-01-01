@@ -1,6 +1,7 @@
 import { app } from './server'
 import connectDb from './services/db'
 
+// first thing first, connect the database cause it takes time
 connectDb().then(() => {
   console.log("database connected")
 }).catch(() => {

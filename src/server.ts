@@ -1,7 +1,12 @@
 require('dotenv').config() //package to access environment keys in .env
 import express from 'express'
 import {urlencoded} from 'body-parser'
+import initPassport from './services/passport'
 import userRouter from './resources/users/user.router'
+import authRouter from './resources/auth/auth.router'
+
+
+initPassport()
 
 export const app = express()
 
@@ -14,3 +19,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', userRouter) 
+
+app.use('/auth', authRouter)
+

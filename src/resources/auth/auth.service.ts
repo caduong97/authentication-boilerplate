@@ -18,7 +18,6 @@ export const createUser = async (newUser: User ) => {
       //   return error
       // })
       return user.save().then(savedUser => {
-        console.log("saved here ")
         return savedUser
       }).catch(error => {
         return error
@@ -28,3 +27,4 @@ export const createUser = async (newUser: User ) => {
     return error
   }
 }
+    

@@ -1,8 +1,8 @@
-// import passport from 'passport'
+import passport from 'passport'
 import {RequestHandler} from 'express'
 // import config from '../../config'
 import { User } from '../users/user.interface'
-import { createUser } from './auth.service'
+import { createUser} from './auth.service'
 
 export const signUpUser: RequestHandler = async (req, res) => {
   try {
@@ -20,6 +20,19 @@ export const signUpUser: RequestHandler = async (req, res) => {
     } else {
       res.status(201).json(status) 
     }
+  } catch (error) {
+    res.status(400).json({error})
+  }
+}
+
+export const signInUser: RequestHandler = async (req, res, next) => {
+  try {
+
+    passport.authenticate('local', {
+      successRedirect: '/dashboard', 
+      failureRedirect: '/auth/login',
+    })(req, res, next)
+    
   } catch (error) {
     res.status(400).json({error})
   }
